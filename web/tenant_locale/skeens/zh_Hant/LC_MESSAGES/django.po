@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-20 15:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: core/models.py:63
+msgid "slideimage_name"
+msgstr ""
+
+#: core/models.py:65
+msgid "image"
+msgstr "圖片"
+
+#: core/models.py:69 core/models.py:70
+msgid "Slideimage"
+msgstr ""
+
+#: core/models.py:106
+msgid "Raw string already exists!"
+msgstr ""
+
+#: customers/templates/customers/change_list.html:31
+#: customers/templates/customers/customers_form.html:8
+#, fuzzy
+#| msgid "Home page"
+msgid "Home"
+msgstr "首頁"
+
+#: customers/templates/customers/change_list.html:52
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: customers/templates/customers/change_list.html:61
+msgid "Please correct the error below."
+msgstr ""
+
+#: customers/templates/customers/change_list.html:61
+msgid "Please correct the errors below."
+msgstr ""
+
+#: customers/templates/customers/change_list.html:86
+msgid "Filter"
+msgstr ""
+
+#: customers/templates/customers/change_list.html:88
+msgid "Clear all filters"
+msgstr ""
+
+#: epaper/templates/epaper/epaper.html:11
+#, fuzzy
+#| msgid "Product Description"
+msgid "subscription"
+msgstr "商品描述"
+
+#: epaper/templates/epaper/thanks.html:10
+msgid "Thank you for subscribing to the newsletter."
+msgstr "感謝訂閱電子報"
+
+#: orders/models.py:10
+msgid "Order Id"
+msgstr "訂單號"
+
+#: orders/models.py:13
+msgid "Name"
+msgstr "姓名"
+
+#: orders/models.py:14
+msgid "Phone"
+msgstr "手機"
+
+#: orders/models.py:15
+msgid "District"
+msgstr "地區"
+
+#: orders/models.py:16
+msgid "Zip Code"
+msgstr "郵遞區號"
+
+#: orders/models.py:17
+msgid "Address"
+msgstr "地址"
+
+#: orders/models.py:18
+msgid "Total"
+msgstr "總額"
+
+#: orders/models.py:19 products/models.py:55
+msgid "Created Date"
+msgstr "建立日期"
+
+#: orders/models.py:20 products/models.py:56
+msgid "Modified Date"
+msgstr "修改日期"
+
+#: orders/models.py:22
+msgid "Status"
+msgstr "狀態"
+
+#: orders/models.py:24
+msgid "Unpaid"
+msgstr "未付款"
+
+#: orders/models.py:24
+msgid "Payment Fail"
+msgstr "付款失敗"
+
+#: orders/models.py:24
+msgid "Waiting for shipment"
+msgstr "等待運送"
+
+#: orders/models.py:24
+msgid "Transporting"
+msgstr "運送中"
+
+#: orders/models.py:24
+msgid "Completed"
+msgstr "已完成"
+
+#: orders/models.py:24
+msgid "Cancelled"
+msgstr "已取消"
+
+#: orders/templates/orders/checkout.html:11
+#: products/templates/products/detail/template1.html:13
+msgid "Home page"
+msgstr "首頁"
+
+#: orders/templates/orders/checkout.html:12
+msgid "Shopping cart"
+msgstr "購物車"
+
+#: orders/templates/orders/checkout.html:13
+msgid "Checkout"
+msgstr "結帳"
+
+#: orders/templates/orders/checkout.html:54
+msgid "Place Order"
+msgstr "下訂單"
+
+#: products/models.py:50
+msgid "Product Name"
+msgstr "商品名稱"
+
+#: products/models.py:51
+msgid "Product Name En"
+msgstr "商品名稱(英文)"
+
+#: products/models.py:52
+msgid "Product Description"
+msgstr "商品描述"
+
+#: products/models.py:53
+msgid "Product Description En"
+msgstr "商品描述(英文)"
+
+#: products/models.py:54
+msgid "Product Price"
+msgstr "商品價格"
+
+#: products/models.py:59
+msgid "Product Category"
+msgstr "商品分類"
+
+#: products/models.py:63 products/models.py:64
+msgid "Product"
+msgstr "商品"
+
+#: products/templates/base.html:72
+msgid "Subscribe to the newsletter"
+msgstr "訂閱電子報"
+
+#: products/templates/products/detail/template1.html:14
+msgid "List of products"
+msgstr "商品列表"
+
+#: products/templates/products/detail/template1.html:15
+msgid "Product detail"
+msgstr "商品詳細資料"
+
+msgid "View detail of the product"
+msgstr "檢視商品詳細資料"
+
+msgid "Add to cart"
+msgstr "加入購物車"
+
+msgid "PRIVACY POLICY"
+msgstr "隱私權政策"
+
+msgid "CONTACT"
+msgstr "聯絡我們"
+
+msgid "Contact Us"
+msgstr "聯絡我們"
+
+msgid "Contact"
+msgstr "聯絡我們"
+
+msgid "Your Name"
+msgstr "您的名字"
+
+msgid "Your Email"
+msgstr "您的Email"
+
+msgid "Subject"
+msgstr "主旨"
+
+msgid "Message"
+msgstr "訊息"

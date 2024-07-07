@@ -1,0 +1,95 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15.2
+    container_name: ${IMAGE_NAME}_db
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    healthcheck:
+        test: [ "CMD", "pg_isready", "-q", "-d", "${POSTGRES_DB}", "-U", "${POSTGRES_USER}" ]
+        timeout: 20s
+        interval: 10s
+        retries: 10
+    volumes:
+      - ./data/postgresql/data:/var/lib/postgresql/data
+  web:
+    image: aoiec_django:latest           # image 名稱
+    build: .                               # 當 --build 執行時的 build 執行目錄
+    container_name: ${IMAGE_NAME}_web  # 容器名稱
+    restart: always                        # 自動重啟
+    #user: "${UID}"                           # 指定非 root 使用者
+    ports:
+      - "${WEB_PORT}:8000"                      # port 映射
+    volumes:
+      - .:/opt/app                         # 資料卷對映（. 為當前目錄）
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+      
+  mailserver:
+    image: boky/postfix
+    container_name: ${IMAGE_NAME}_mailserver
+    restart: always
+    environment:
+        ALLOW_EMPTY_SENDER_DOMAINS: 'true'
+        POSTFIX_myhostname: 'postfix'
+    entrypoint: /opt/app/postfix/docker-entrypoint.sh
+    volumes:
+      - ./postfix:/opt/app/postfix
+        
+  redis:
+    image: redis:latest
+    container_name: ${IMAGE_NAME}_redis
+    restart: always
+    
+  qcluster: 
+    image: aoiec_django:latest
+    container_name: ${IMAGE_NAME}_qcluster
+    restart: always
+    entrypoint: /opt/app/django_q/docker-entrypoint.sh
+    volumes:
+      - .:/opt/app
+    depends_on:
+      - db
+      - redis
+      
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    container_name: ${IMAGE_NAME}_es01
+    restart: always
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/elasticsearch_data:/usr/share/elasticsearch/data # chmod 777
+    ports:
+        - "9200:9200"
+        
+  nginx:
+      image: nginx
+      container_name: ${IMAGE_NAME}_nginx
+      restart: always
+      volumes:
+          - .:/opt/app
+          - ./nginx/conf.d:/etc/nginx/conf.d
+          - ./nginx/certificates:/etc/nginx/certificates
+      ports:
+          - "80:80"
+          - "443:443"
+      depends_on:
+          - web
